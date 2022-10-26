@@ -37,3 +37,30 @@
   [1m[35m (0.0ms)[0m  begin transaction
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("post_id", "zipcode", "creator_id", "description") VALUES (?, ?, ?, ?)[0m  [["post_id", "3"], ["zipcode", "10463"], ["creator_id", "2"], ["description", "hello USA"]]
   [1m[35m (0.3ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2022-10-26 15:58:09 -0400
+
+
+Started GET "/movies" for 127.0.0.1 at 2022-10-26 15:58:10 -0400
+Processing by MoviesController#index as HTML
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant MoviesController::Movie):
+  app/controllers/movies_controller.rb:59:in `ratings_list'
+  app/controllers/movies_controller.rb:63:in `ratings_hash'
+  app/controllers/movies_controller.rb:53:in `force_index_redirect'
+
+
+  Rendered /Users/lyz9518/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /Users/lyz9518/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/lyz9518/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/lyz9518/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.8ms)
+  Rendered /Users/lyz9518/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/lyz9518/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/lyz9518/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/lyz9518/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/lyz9518/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.4ms)
+  Rendered /Users/lyz9518/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/lyz9518/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/lyz9518/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (29.1ms)
