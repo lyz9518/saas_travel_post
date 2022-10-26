@@ -1,0 +1,31 @@
+<h2>All Posts</h2>
+
+<table class="table table-striped col-md-12" id="posts">
+  <thead>
+    <tr>
+      <th>Post ID</th>
+      <th>Creator ID</th>
+      <th>Zipcode</th>
+      <th>More Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @all_posts.each do |post| %>
+      <tr>
+        <td>
+          <%= post.post_id %>
+        </td>
+        <td>
+          <%= post.creator_id %>
+        </td>
+        <td>
+          <%= post.zipcode %>
+        </td>
+        <td>
+          <%= link_to "More about #{post.post_id}", post_path(post) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Add new post', new_post_path, class: 'btn btn-primary' %>

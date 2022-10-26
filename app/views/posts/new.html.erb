@@ -1,0 +1,13 @@
+<h2>Create New Post</h2>
+
+<%= form_tag posts_path, class: 'form' do %>
+  <%= label :post, :title, 'Post Title', class: 'col-form-label' %>
+  <%= text_field :post, :title, class: 'form-control' %>
+  <%= label :post, :zipcode, 'Zipcode', class: 'col-form-label' %>
+  <%= text_field :post, :zipcode, class: 'form-control' %>
+  <%= label :post, :description, 'Tell Us More about This Place:', class: 'col-form-label' %>
+  <%= text_field :post, :description, class: 'form-control' %>
+  <br/>
+  <%= submit_tag 'Post', class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', posts_path, class: 'btn btn-secondary' %>
+<% end %>

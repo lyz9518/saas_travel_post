@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(id) # look up movie by unique ID
     # will render app/views/movies/show.<extension> by default
   end
-
+  
   def index
     @all_ratings = Movie.all_ratings
     @movies = Movie.with_ratings(ratings_list, sort_by)
@@ -17,14 +17,26 @@ class MoviesController < ApplicationController
     session['sort_by'] = @sort_by
   end
 
-  def new
-    # default: render 'new' template
-  end
+
 
   def create
     @movie = Movie.create!(movie_params)
-    flash[:notice] = "#{@movie.title} was successfully created."
-    redirect_to movies_path
+    
+    
+    @post_title = params[:title]
+    @post_description = params[:description]
+    @zipcode = params[:zipcode]
+    # TODO: Dummy User & Post at the moment. Replace this section in Iter2
+    @user_id = "123"
+    @user_name = "Arthur Liu"
+    @post = Posts.create!(
+      post_id: "100", 
+      zipcode: @zipcode, 
+      title: @post_title, 
+      creator_id: @user_id, 
+      description: @post_description, 
+      date: "2022-01-03")
+    flash[:notice] = "#{@post.title} was successfully created."
   end
 
   def edit
