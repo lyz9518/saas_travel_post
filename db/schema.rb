@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20111119180638) do
     t.string   "zipcode"
     t.string   "creator_id"
     t.text     "description"
+    t.date     "date"
   end
 
 end
