@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 posts = [
-  { post_id: '1', zipcode: '10463', creator_id: '1', description: 'hello world' }
-  { post_id: '2', zipcode: '10464', creator_id: '1', description: 'Hi welcome' }
+  { post_id: '1', zipcode: '10463', creator_id: '1', description: 'hello world' },
+  { post_id: '2', zipcode: '10464', creator_id: '1', description: 'Hi welcome' },
   { post_id: '3', zipcode: '10463', creator_id: '2', description: 'hello USA' }
 ]
 
