@@ -41,24 +41,27 @@ class PostsController < ApplicationController
     end
   
     def edit
-      @movie = Movie.find params[:id]
+      @post = Post.find params[:id]
     end
   
     def update
-      @movie = Movie.find params[:id]
-      @movie.update_attributes!(movie_params)
-      flash[:notice] = "#{@movie.title} was successfully updated."
-      redirect_to movie_path(@movie)
+      @post = Post.find params[:id]
+      @post.update_attributes!(post_params)
+      flash[:notice] = "#{@post.title} was successfully updated."
+      redirect_to post_path(@post)
     end
   
     def destroy
-      @movie = Movie.find(params[:id])
-      @movie.destroy
-      flash[:notice] = "Movie '#{@movie.title}' deleted."
-      redirect_to movies_path
+      @post = Post.find(params[:id])
+      @post.destroy
+      flash[:notice] = "post '#{@post.title}' deleted."
+      redirect_to posts_path
     end
   
     private
+    def post_params
+      params.require(:post).permit(:title, :description)
+    end
   
     def force_index_redirect
       if !params.key?(:ratings) || !params.key?(:sort_by)
