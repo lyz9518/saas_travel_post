@@ -3,10 +3,10 @@
 GoodPoints is designed for exploring zipcode-based interesting locations. 
 
 ## Team Member
-Chen Li     cl4155
-Yao Luo     yl4855
-Yuzhao Liu  yl4897
-Ze Ma       zm2385
+* Chen Li     cl4155
+* Yao Luo     yl4855
+* Yuzhao Liu  yl4897
+* Ze Ma       zm2385
 
 ## To run the application
 
