@@ -13,32 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20111119180638) do
 
-  create_table "posts", force: :cascade do |t|
-    t.string   "post_id"
-    t.string   "zipcode"
-    t.string   "title"
-    t.string   "creator_id"
-    t.text     "description"
-    t.date     "date"
-  end
-
-end
-
-ActiveRecord::Schema.define(version: 20111119180638) do
-
-  create_table "users", force: :cascade do |t|
-    t.string   "user_id"
-    t.string   "user_name"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "password"
-  end
-
-end
-
-
-ActiveRecord::Schema.define(version: 20111119180638) do
-
   create_table "movies", force: :cascade do |t|
     t.string   "title"
     t.string   "rating"
@@ -46,6 +20,21 @@ ActiveRecord::Schema.define(version: 20111119180638) do
     t.datetime "release_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "zipcode"
+    t.string "title"
+    t.string "creator_id"
+    t.text   "description"
+    t.date   "date"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "user_name"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "password"
   end
 
 end

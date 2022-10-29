@@ -3,26 +3,26 @@
 <table class="table table-striped col-md-12" id="posts">
   <thead>
     <tr>
+      <th>Title</th>
       <th>Post ID</th>
       <th>Creator ID</th>
       <th>Zipcode</th>
-      <th>More Info</th>
     </tr>
   </thead>
   <tbody>
     <% @all_posts.each do |post| %>
       <tr>
         <td>
-          <%= post.post_id %>
+          <%= link_to "#{post.title}", post_path(post) %>
+        </td>
+        <td>
+          <%= post.id %>
         </td>
         <td>
           <%= post.creator_id %>
         </td>
         <td>
           <%= post.zipcode %>
-        </td>
-        <td>
-          <%= link_to "More about #{post.post_id}", post_path(post) %>
         </td>
       </tr>
     <% end %>
