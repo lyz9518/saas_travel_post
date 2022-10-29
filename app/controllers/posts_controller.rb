@@ -8,17 +8,15 @@ class PostsController < ApplicationController
     end
   
     def index
-    #   @all_ratings = Movie.all_ratings
-    #   @movies = Movie.with_ratings(ratings_list, sort_by)
-    #   @ratings_to_show_hash = ratings_hash
-    #   @sort_by = sort_by
       @all_posts = Post.all()
-      # remember the correct settings for next time
-    #   session['ratings'] = ratings_list
-    #   session['sort_by'] = @sort_by
+
     end
   
     def new
+      if not logged_in?
+        flash["notice"] = "Login to create new post"
+        redirect_to "/login"
+      end
     end
   
     def create
@@ -26,8 +24,8 @@ class PostsController < ApplicationController
       @post_description = params[:post][:description]
       @zipcode = params[:post][:zipcode]
       # TODO: Dummy User & Post at the moment. Replace this section in Iter2
-      @user_id = "123"
-      @user_name = "Arthur Liu"
+      @user_id = current_user.user_id
+      @user_name = current_user.user_name
       @aa = params[:post]
       @post = Post.create!(
         post_id: "100", 
@@ -42,6 +40,10 @@ class PostsController < ApplicationController
   
     def edit
       @post = Post.find params[:id]
+      if @post.creator_id != session[:user_id]
+        flash["notice"] = "Only creator can edit the post"
+        redirect_to(:back)
+      end
     end
   
     def update
@@ -53,9 +55,14 @@ class PostsController < ApplicationController
   
     def destroy
       @post = Post.find(params[:id])
-      @post.destroy
-      flash[:notice] = "post '#{@post.title}' deleted."
-      redirect_to posts_path
+      if @post.creator_id != session[:user_id]
+        flash["notice"] = "Only creator can delete the post"
+        redirect_to(:back)
+      else
+        @post.destroy
+        flash[:notice] = "post '#{@post.title}' deleted."
+        redirect_to posts_path
+      end
     end
   
     private
