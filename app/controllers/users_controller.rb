@@ -7,8 +7,9 @@ class UsersController < ApplicationController
     end
   
     def create
-      @user = User.create(params.require(:user).permit(:user_id, :password))
-      session[:user_id] = @user.user_id
+      @user = User.create(params.require(:user).permit(:user_name, :password))
+      session[:user_id] = @user.id
+      flash["notice"] = @user.id
       redirect_to '/posts'
     end
   end

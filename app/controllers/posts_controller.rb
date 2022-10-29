@@ -24,11 +24,10 @@ class PostsController < ApplicationController
       @post_description = params[:post][:description]
       @zipcode = params[:post][:zipcode]
       # TODO: Dummy User & Post at the moment. Replace this section in Iter2
-      @user_id = current_user.user_id
+      @user_id = current_user.id
       @user_name = current_user.user_name
       @aa = params[:post]
       @post = Post.create!(
-        post_id: "100", 
         zipcode: @zipcode, 
         title: @post_title, 
         creator_id: @user_id, 
@@ -40,7 +39,7 @@ class PostsController < ApplicationController
   
     def edit
       @post = Post.find params[:id]
-      if @post.creator_id != session[:user_id]
+      if @post.creator_id != session[:user_id].to_s
         flash["notice"] = "Only creator can edit the post"
         redirect_to(:back)
       end
@@ -55,7 +54,7 @@ class PostsController < ApplicationController
   
     def destroy
       @post = Post.find(params[:id])
-      if @post.creator_id != session[:user_id]
+      if @post.creator_id != session[:user_id].to_s
         flash["notice"] = "Only creator can delete the post"
         redirect_to(:back)
       else

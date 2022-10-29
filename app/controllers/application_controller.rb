@@ -8,11 +8,10 @@ class ApplicationController < ActionController::Base
     
     
   def current_user   
-      User.find_by(user_id: session[:user_id])
+      User.find_by(id: session[:user_id])
   end
 
   def logged_in?
-      # byebug
       not current_user.nil?  
   end
 

@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(user_id: params[:user_id])
+    user = User.find_by(user_name: params[:user_name])
     if user && user.password == params[:password]
       flash["notice"] = "Login successfully"
-      session[:user_id] = user.user_id
+      session[:user_id] = user.id
       redirect_to '/posts'
     elsif not user
       flash["notice"] = "No such user find"
