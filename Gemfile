@@ -10,12 +10,9 @@ gem 'uglifier', '>= 2.7.1'
 gem 'jquery-rails'
 
 group :development do
-  gem 'rerun'
-end
-
-group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'rerun'
 end
 
 # for Heroku deployment - as described in Ap. A of ELLS book
