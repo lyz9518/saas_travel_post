@@ -6,13 +6,16 @@ Given /the following posts exist/ do |posts_table|
   end
 end
 
-Given /I have (not )?logged in/ do |no|
-  if no
-    expect(page).to have_no_content("Welcome")
-  else
-    expect(page).to have_content("Welcome")
-  end
+Given /I have not logged in/ do
+  expect(page).to have_no_content("Welcome")
 end
+
+Given /I have login as (.*) with password (.*)/ do |username, password|
+  visit '/login'
+  fill_in "user_name", :with => username
+  fill_in "password", :with => password
+  click_on 'login-but'
+end 
 
 Then /(.*) seed posts should exist/ do | n_seeds |
   expect(Post.count).to eq n_seeds.to_i
