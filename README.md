@@ -42,7 +42,7 @@ bundle exec cucumber
 Set up heroku server by following the commands below
 ```
 heroku apps:create (may have to change heroku stack if prompted stack version error)
-git push heroku master
+git push heroku master 
 heroku run rake db:migrate
 heroku run rake db:seed
 ```
