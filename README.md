@@ -35,6 +35,8 @@ bundle exec rerun -- rackup --port 3000
 
 * Cucumber User Test
 ```
+bundle exec rake db:migrate
+bundle exec rake db:test:prepare
 bundle exec cucumber
 ```
 

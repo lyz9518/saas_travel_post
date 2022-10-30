@@ -16,13 +16,26 @@ Background: dummy posts have been added to database
   And I am on the Good Points home page
   Then 3 seed posts should exist
 
-Scenario: add new post to the website without logging in=
+Scenario: add new post to the website without logging in
   Given I have not logged in
   When I click "Add new post"
   Then I am on the login page
 
-Scenario: add new post to the website without logging in=
+Scenario: add new post to the website with logging in
   Given I have login as lion with password 123
   And I am on the home page
   When I click "Add new post"
   Then I am on the new post page
+
+Scenario: Login with correct username and password
+  Given I have login as lion with password 123
+  Then I am on the home page
+
+Scenario: Login with non-existent username
+  Given I have login as nonexistent with password 123
+  Then I am on the login page
+
+Scenario: Login with incorrect username
+  Given I have login as lion with password randomike12345
+  Then I am on the login page
+
