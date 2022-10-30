@@ -21,8 +21,8 @@ Scenario: add new post to the website without logging in=
   When I click "Add new post"
   Then I am on the login page
 
-# TODO: Add Given clicked on Log in etc..... 
-# Scenario: add new post to the website with logged in
-#   Given I have logged in
-#   When I click "Add new post"
-#   Then I am on the new post page
+Scenario: add new post to the website without logging in=
+  Given I have login as lion with password 123
+  And I am on the home page
+  When I click "Add new post"
+  Then I am on the new post page
