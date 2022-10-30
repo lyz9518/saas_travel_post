@@ -1,15 +1,21 @@
 # Add a declarative step here for populating the DB with movies.
 
-Given /the following movies exist/ do |movies_table|
-  movies_table.hashes.each do |movie|
-    # each returned element will be a hash whose key is the table header.
-    # you should arrange to add that movie to the database here.
+Given /the following posts exist/ do |posts_table|
+  posts_table.hashes.each do |post|
+    Post.create(post)
   end
-  pending "Fill in this step in movie_steps.rb"
 end
 
-Then /(.*) seed movies should exist/ do | n_seeds |
-  expect(Movie.count).to eq n_seeds.to_i
+Given /I have (not )?logged in/ do |no|
+  if no
+    expect(page).to have_no_content("Welcome")
+  else
+    expect(page).to have_content("Welcome")
+  end
+end
+
+Then /(.*) seed posts should exist/ do | n_seeds |
+  expect(Post.count).to eq n_seeds.to_i
 end
 
 # Make sure that one string (regexp) occurs before or after another one
