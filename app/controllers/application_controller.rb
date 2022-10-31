@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     not current_user.nil?  
   end
 
-  def authorized
-    redirect_to '/posts' unless logged_in?
-  end
+  # def authorized
+  #   redirect_to '/posts' unless logged_in?
+  # end
 end

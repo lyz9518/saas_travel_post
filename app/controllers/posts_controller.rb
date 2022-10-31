@@ -41,7 +41,7 @@ class PostsController < ApplicationController
       @post = Post.find params[:id]
       if @post.creator_id != session[:user_id].to_s
         flash["notice"] = "Only creator can edit the post"
-        redirect_to(:back)
+        redirect_to(@post)
       end
     end
   
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
       if @post.creator_id != session[:user_id].to_s
         flash["notice"] = "Only creator can delete the post"
-        redirect_to(:back)
+        redirect_to(@post)
       else
         @post.destroy
         flash[:notice] = "post '#{@post.title}' deleted."
@@ -69,23 +69,23 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :description)
     end
   
-    def force_index_redirect
-      if !params.key?(:ratings) || !params.key?(:sort_by)
-        flash.keep
-        url = movies_path(sort_by: sort_by, ratings: ratings_hash)
-        redirect_to url
-      end
-    end
+    # def force_index_redirect
+    #   if !params.key?(:ratings) || !params.key?(:sort_by)
+    #     flash.keep
+    #     url = movies_path(sort_by: sort_by, ratings: ratings_hash)
+    #     redirect_to url
+    #   end
+    # end
   
-    def ratings_list
-      params[:ratings]&.keys || session[:ratings] || Movie.all_ratings
-    end
+    # def ratings_list
+    #   params[:ratings]&.keys || session[:ratings] || Movie.all_ratings
+    # end
   
-    def ratings_hash
-      Hash[ratings_list.collect { |item| [item, "1"] }]
-    end
+    # def ratings_hash
+    #   Hash[ratings_list.collect { |item| [item, "1"] }]
+    # end
   
-    def sort_by
-      params[:sort_by] || session[:sort_by] || 'id'
-    end
+    # def sort_by
+    #   params[:sort_by] || session[:sort_by] || 'id'
+    # end
   end

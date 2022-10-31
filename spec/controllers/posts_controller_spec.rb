@@ -34,6 +34,20 @@ describe PostsController do
     end
   end
 
+  describe 'new post' do
+    let!(:user) { User.create!(user_name: 'abc', first_name: 'Columbia', last_name: "Lion", password: "123")}
+    it 'should display create new post page' do
+      get :new, {}, {'user_id' => 1}
+      expect(response).to render_template('new')
+    end
+
+    it 'ask unregistered users to login when they try to create new posts' do
+      get :new, {}
+      expect(flash[:notice]).to match(/Login to create new post/)
+      expect(response).to redirect_to("/login")
+    end
+  end
+
   describe 'create' do
     let!(:user) { User.create!(user_name: 'abc', first_name: 'Columbia', last_name: "Lion", password: "123")}
 
@@ -49,9 +63,12 @@ describe PostsController do
 
   describe 'DELETE' do
     let!(:user) { User.create!(user_name: 'abc', first_name: 'Columbia', last_name: "Lion", password: "123")}
-    let!(:post) { Post.create!(title: 'Hi', zipcode: '10463', creator_id: "")}
+    let!(:user2) { User.create!(user_name: 'bbc', first_name: 'Columbia', last_name: "Lime", password: "123")}
+
+    let!(:post) { Post.create!(title: 'Hi', zipcode: '10463', creator_id: user.id)}
   
     it 'deletes a post and redirects to the home page and alert' do
+      request.session[:user_id] = user.id
       orig_post_count = Post.all.count
       delete :destroy, id: post.id
       expect(Post.all.count).to eq(orig_post_count - 1)
@@ -59,21 +76,42 @@ describe PostsController do
       expect(response).to redirect_to(posts_path)
       expect(flash[:notice]).to eq("post 'Hi' deleted.")
     end
+
+    it 'only allow the creator to deletes a post' do
+      request.session[:user_id] = user2.id
+      delete :destroy, id: post.id
+  
+      expect(flash[:notice]).to match(/Only creator can delete the post/)
+      expect(response).to redirect_to("/posts/#{post.id}")
+    end
   end
   
   describe 'Edit' do
 
     let!(:user) { User.create!(user_name: 'abc', first_name: 'Columbia', last_name: "Lion", password: "123")}
-    let!(:new_post) { Post.create!(title: 'Hi', zipcode: '10463', creator_id: "")}
+    let!(:user2) { User.create!(user_name: 'bbc', first_name: 'Columbia', last_name: "Lime", password: "123")}
 
-    before do
-      get :edit, id: new_post.id
-    end
+    let!(:new_post) { Post.create!(title: 'Hi', zipcode: '10463', creator_id: user.id)}
+
+    # before do
+    #   request.session[:user_id] = user.id
+    #   get :edit, id: new_post.id
+    # end
   
-    it 'should edit a post and redirect' do
+    it 'should let creator edit a post and redirect' do
+      request.session[:user_id] = user.id
+      get :edit, id: new_post.id
       expect(assigns(:post)).to eql(new_post)
       expect(response).to render_template('edit')
     end
+
+    it 'should reject edit from non-creator' do
+      request.session[:user_id] = user2.id
+      get :edit, id: new_post.id
+      expect(flash[:notice]).to match(/Only creator can edit the post/)
+      expect(response).to redirect_to("/posts/#{new_post.id}")
+    end
+
   end
   
   describe 'Update' do
