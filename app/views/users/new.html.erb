@@ -1,4 +1,4 @@
-<h1>Sign In</h1>
+<h1>Create A User Now</h1>
 
 <%= form_for @user do |f|%>
     <%= f.label :user_name%><br>
@@ -10,5 +10,5 @@
     <%= f.label :password%><br>
     <%= f.password_field :password%><br>
 
-    <%= f.submit %>
+    <%= submit_tag "Create User", :id => 'create-user' %>
 <%end%>
