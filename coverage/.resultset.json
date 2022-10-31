@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/spec/controllers/posts_controller_spec.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/spec/controllers/posts_controller_spec.rb": {
         "lines": [
           1,
           1,
@@ -52,48 +52,52 @@
           null,
           null,
           null,
+          1,
+          2,
+          2,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
           null,
           null,
           null,
+          1,
+          null,
+          2,
+          2,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
           null,
           null,
           null,
+          1,
+          2,
+          2,
           null,
+          1,
+          1,
+          1,
+          1,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          1,
+          1,
           null,
           null,
           null
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/spec/rails_helper.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/spec/rails_helper.rb": {
         "lines": [
           null,
           1,
@@ -151,7 +155,7 @@
           null
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/config/environment.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -160,7 +164,7 @@
           1
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/config/application.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/config/application.rb": {
         "lines": [
           1,
           null,
@@ -233,7 +237,7 @@
           null
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/config/boot.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -243,7 +247,7 @@
           1
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/config/environments/test.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -288,7 +292,7 @@
           null
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/config/initializers/backtrace_silencers.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/config/initializers/backtrace_silencers.rb": {
         "lines": [
           null,
           null,
@@ -299,7 +303,7 @@
           null
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/config/initializers/inflections.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -313,7 +317,7 @@
           null
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/config/initializers/mime_types.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/config/initializers/mime_types.rb": {
         "lines": [
           null,
           null,
@@ -322,7 +326,7 @@
           null
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/config/initializers/session_store.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/config/initializers/session_store.rb": {
         "lines": [
           null,
           null,
@@ -334,7 +338,7 @@
           null
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/config/initializers/wrap_parameters.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/config/initializers/wrap_parameters.rb": {
         "lines": [
           null,
           null,
@@ -352,7 +356,7 @@
           null
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/config/routes.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/config/routes.rb": {
         "lines": [
           1,
           1,
@@ -367,110 +371,15 @@
           null
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/app/helpers/application_helper.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/app/helpers/movies_helper.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/app/helpers/movies_helper.rb": {
         "lines": [
           1,
-          null,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/app/controllers/posts_controller.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
           null,
           1,
           0,
@@ -478,7 +387,102 @@
           null
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/app/controllers/application_controller.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/app/controllers/posts_controller.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          0,
+          0,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null,
@@ -503,7 +507,7 @@
           null
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/spec/controllers/users_controller_spec.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/spec/controllers/users_controller_spec.rb": {
         "lines": [
           1,
           null,
@@ -512,9 +516,9 @@
           1,
           1,
           null,
-          4,
-          4,
-          4,
+          7,
+          7,
+          7,
           null,
           null,
           null,
@@ -535,7 +539,7 @@
           null
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/app/controllers/users_controller.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/app/controllers/users_controller.rb": {
         "lines": [
           1,
           null,
@@ -554,13 +558,16 @@
           null
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/app/models/post.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/app/models/post.rb": {
         "lines": [
           1,
+          1,
+          0,
+          null,
           null
         ]
       },
-      "/Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/app/models/user.rb": {
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/app/models/user.rb": {
         "lines": [
           1,
           null,
@@ -568,6 +575,6 @@
         ]
       }
     },
-    "timestamp": 1667182297
+    "timestamp": 1667245243
   }
 }
