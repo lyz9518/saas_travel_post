@@ -23,7 +23,7 @@ class PostsController < ApplicationController
       @post_title = params[:post][:title]
       @post_description = params[:post][:description]
       @zipcode = params[:post][:zipcode]
-      # TODO: Dummy User & Post at the moment. Replace this section in Iter2
+      # TODO: Dummy User & Post at the moment. Replace this section in Iter2\
       @user_id = current_user.id
       @user_name = current_user.user_name
       @aa = params[:post]
