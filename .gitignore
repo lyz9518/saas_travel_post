@@ -1,2 +1,5 @@
 tmp/*
 log/*
+.byebug_history
+db/development.sqlite3
+db/test.sqlite3

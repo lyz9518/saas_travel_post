@@ -25,7 +25,7 @@ describe PostsController do
   end
 
   describe 'show' do
-    let!(:post) { Post.create!(title: 'Hi', zipcode: '10463') }
+    let!(:post) { Post.create!(title: 'Hi', zipcode: '10463')}
 
     it 'should show the detail of the post' do
       get :show, id: post.id
@@ -35,10 +35,12 @@ describe PostsController do
   end
 
   describe 'create' do
+    let!(:user) { User.create!(user_name: 'abc', first_name: 'Columbia', last_name: "Lion", password: "123")}
+
     it 'creates a new post and redirects to the index page' do
       orig_posts_count = Post.all.count
-      request.session[:user_id] = 0
-      post :create, post: {:zipcode=>"10463", :title=>"AAA", :user_id=>"1", :username=>"XXX"}
+      request.session[:user_id] = 1
+      post :create, :post => {:zipcode=>"10463", :title=>"AAA", :username=>"XXX"}
       expect(Post.all.count).to eq(orig_posts_count + 1)
 
       expect(response).to redirect_to(posts_url)
