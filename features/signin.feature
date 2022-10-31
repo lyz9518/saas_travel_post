@@ -1,10 +1,9 @@
-Feature: display list of movies filtered by MPAA rating
+Feature: User should be able to create new account
 
-  As a traveler and local resident, 
-  So that I can quickly explore interesting locations where I want to go
-  I want to see others' posts matching the zipcode I entered.
+  As a user, 
+  So that I can create account
 
-Background: dummy posts have been added to database
+Background: dummy posts and users have been added to database
 
   Given the following posts exist:
   | zipcode | title | creator_id | description | date |
@@ -21,15 +20,18 @@ Background: dummy posts have been added to database
   And I am on the Good Points home page
   Then 3 seed posts should exist
 
-Scenario: add new post to the website without logging in
-  Given I have not logged in
-  When I click "Add new post"
-  Then I am on the login page
-
-Scenario: add new post to the website with logging in
-  Given I have login as lion with password 123
-  And I am on the home page
+Scenario: Create new account, and should be able to make new post
+  Given I am on the home page
+  When I press "nav-signup-but"
+  Then I should see "Create A User Now"
+  And I fill in "User name" with "testbot"
+  And I fill in "First name" with "Test"
+  And I fill in "Last name" with "Bot"
+  And I fill in "Password" with "tmp"
+  And I press "create-user"
+  Then I should see "Welcome testbot"
   When I click "Add new post"
   Then I am on the new post page
+
 
 

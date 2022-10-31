@@ -5,6 +5,6 @@
   <%= label :post, :description, 'Description', class: 'col-form-label'  %>
   <%= text_field :post, 'description', class: 'form-control' %>
   <br/>
-  <%= submit_tag 'Update Post Info', class: 'btn btn-primary' %>
+  <%= submit_tag 'Update Post Info', class: 'btn btn-primary', :id => 'edit-submit-but' %>
   <%= link_to 'Cancel', posts_path, class: 'btn btn-secondary' %>
 <% end %>

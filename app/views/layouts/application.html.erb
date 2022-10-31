@@ -16,8 +16,8 @@
         <div>Welcome <%= current_user.user_name %></div>
         <%= button_to "Sign Off", '/signoff', method: :get%>
       <% else %>
-        <%= button_to "Login", '/login', method: :get%>
-        <%= button_to "Sign Up", '/users/new', method: :get%>
+        <%= button_to "Login", '/login', method: :get, :id =>'nav-login-but'%>
+        <%= button_to "Sign Up", '/users/new', method: :get, :id => 'nav-signup-but'%>
       <% end %>
     </nav>
     <div class="container">
