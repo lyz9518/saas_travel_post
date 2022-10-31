@@ -1,5 +1,5 @@
 class CreatePosts < ActiveRecord::Migration
-  def change
+  def up
     create_table :posts do |t|
       t.string :zipcode
       t.string :title
@@ -14,5 +14,10 @@ class CreatePosts < ActiveRecord::Migration
       t.string :last_name
       t.string :password
     end
+  end
+
+  def down
+    drop_table :posts
+    drop_table :users
   end
 end
