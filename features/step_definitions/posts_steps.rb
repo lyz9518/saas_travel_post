@@ -6,12 +6,24 @@ Given /the following posts exist/ do |posts_table|
   end
 end
 
+Given /the following users exist/ do |users_table|
+  users_table.hashes.each do |user|
+    User.create(user)
+  end
+end
+
 Given /I have not logged in/ do
   expect(page).to have_no_content("Welcome")
 end
 
 Given /I have login as (.*) with password (.*)/ do |username, password|
   visit '/login'
+  fill_in "user_name", :with => username
+  fill_in "password", :with => password
+  click_on 'login-but'
+end 
+
+When /I try to login as (.*) with password (.*)/ do |username, password|
   fill_in "user_name", :with => username
   fill_in "password", :with => password
   click_on 'login-but'
