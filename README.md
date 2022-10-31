@@ -21,14 +21,14 @@ which ruby
 ```
 * Install ruby Gems
 ```
-bundle install --without production
+bundle install
 ```
 * Set up Local SQLite3 Database
 ```
 bin/rake db:setup
 ```
 
-* Start the application
+* Start the application locally
 ```
 bundle exec rerun -- rackup --port 3000
 ```
@@ -41,6 +41,11 @@ bundle exec cucumber
 ```
 
 * Heroku Setup
+
+This application has been deployed on Heroku. You may access it thru the link below.
+
+[GoodPoints](https://cryptic-everglades-19398.herokuapp.com/)
+
 Set up heroku server by following the commands below
 ```
 heroku apps:create (may have to change heroku stack if prompted stack version error)
