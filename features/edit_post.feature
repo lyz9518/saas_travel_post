@@ -40,6 +40,18 @@ Scenario: Non-Creator try to update the post
   And I click "Edit"
   Then I should see "Only creator can edit the post"
 
+Scenario: Creator delete the post
+  Given I have login as lion with password 123
+  When I am on the home page
+  And I click "Check out Here!"
+  And I click "Delete"
+  And I agree in pop up window
+  Then I should see "deleted"
 
-
+Scenario: Non-creator can't delete the post
+  Given I am on the home page
+  And I click "Check out Here!"
+  And I click "Delete"
+  And I agree in pop up window
+  Then I should see "Only creator can delete the post"
 
