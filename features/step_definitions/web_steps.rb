@@ -198,3 +198,13 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+When /^I agree in pop up window$/ do
+  begin
+    main, popup = page.driver.browser.window_handles
+    within_window(popup) do
+      click_on("OK")
+    end
+  rescue
+  end
+end
