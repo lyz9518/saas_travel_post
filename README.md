@@ -19,7 +19,7 @@ GoodPoints is designed for exploring zipcode-based interesting locations.
 ```
 which ruby
 ```
-* Install ruby Gems
+* Install ruby Gems (DO NOT ADD --without production)
 ```
 bundle install
 ```
@@ -28,16 +28,21 @@ bundle install
 bin/rake db:setup
 ```
 
-* Start the application locally
-```
-bundle exec rerun -- rackup --port 3000
-```
-
 * Cucumber User Test
 ```
 bundle exec rake db:migrate
 bundle exec rake db:test:prepare
 bundle exec cucumber
+```
+
+* Unit Test
+```
+rspec
+```
+
+* Start the application locally
+```
+bundle exec rerun -- rackup --port 3000
 ```
 
 * Heroku Setup
