@@ -58,3 +58,6 @@ git push heroku master
 heroku run rake db:migrate
 heroku run rake db:seed
 ```
+
+## Team Collaboration Notice
+Four team members were doing pair programming at the time of development. Git record may distinct from actual execution. All team members worked equally hard to accomplish the project goal.
