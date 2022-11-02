@@ -12,6 +12,7 @@ GoodPoints is designed for exploring zipcode-based interesting locations.
 
 ### Dependencies
 * Ruby 2.6.6
+* rails 4.2.11
 * Git
 
 ### Install Packages
