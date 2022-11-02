@@ -1,6 +1,7 @@
 # GoodPoints
 
 GoodPoints is designed for exploring zipcode-based interesting locations. 
+GitHub Repo: [https://github.com/lyz9518/saas_travel_post](https://github.com/lyz9518/saas_travel_post)
 
 ## Team Member
 * Chen Li     cl4155
