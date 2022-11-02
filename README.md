@@ -17,6 +17,10 @@ GitHub Repo: [https://github.com/lyz9518/saas_travel_post](https://github.com/ly
 * rails 4.2.11
 * Git
 
+### OS Requirementsß
+* Tested on ARM based Apple M1 Macbook Pro
+* macOS Monterey 12.3.1
+
 ### Install Packages
 * Check your ruby version
 ```
