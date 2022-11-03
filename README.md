@@ -17,7 +17,7 @@ GitHub Repo: [https://github.com/lyz9518/saas_travel_post](https://github.com/ly
 * rails 4.2.11
 * Git
 
-### OS Requirementsß
+### OS Requirements
 * Tested on ARM based Apple M1 Macbook Pro
 * macOS Monterey 12.3.1
 
@@ -65,6 +65,9 @@ git push heroku master
 heroku run rake db:migrate
 heroku run rake db:seed
 ```
+
+## Production Version URL
+https://cryptic-everglades-19398.herokuapp.com
 
 ## Team Collaboration Notice
 Four team members were doing pair programming at the time of development. Git record may distinct from actual execution. All team members worked equally hard to accomplish the project goal.
