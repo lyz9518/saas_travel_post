@@ -22,6 +22,28 @@ describe PostsController do
       get :index
       expect(response).to render_template('index')
     end
+    
+    let!(:post1) { Post.create!(title: 'Hello', zipcode: '10001')}
+    let!(:post2) { Post.create!(title: 'Hi', zipcode: '10001')}
+    let!(:post3) { Post.create!(title: 'How are you', zipcode: '10000')}
+    let(:search_by_title) {"Hello"}
+    let(:search_by_zipcode) {"10001"}
+    it "should return post 1" do
+      get :index, :search_by_title => "Hello", :search_by_zipcode => "10001"
+      expect(assigns(:all_posts)).to eq [post1]
+    end
+    it "should return post 1, 2" do
+      get :index, :search_by_title => "", :search_by_zipcode => "10001"
+      expect(assigns(:all_posts)).to eq [post1, post2]
+    end
+    it "should return post 1" do
+      get :index, :search_by_title => "are", :search_by_zipcode => "10000"
+      expect(assigns(:all_posts)).to eq [post3]
+    end
+    it "should return no post" do
+      get :index, :search_by_title => "are", :search_by_zipcode => "100001"
+      expect(assigns(:all_posts)).to eq []
+    end
   end
 
   describe 'show' do
