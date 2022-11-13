@@ -9,7 +9,13 @@ class PostsController < ApplicationController
   
     def index
       @all_posts = Post.all()
-
+    
+      if params[:search_by_title] && params[:search_by_title] != ""
+        @all_posts = @all_posts.where("title LIKE ?", "%"+params[:search_by_title]+"%")
+      end
+      if params[:search_by_zipcode] && params[:search_by_zipcode] != ""
+        @all_posts = @all_posts.where("zipcode LIKE ?", "%"+params[:search_by_zipcode]+"%")
+      end
     end
   
     def new

@@ -29,6 +29,14 @@ When /I try to login as (.*) with password (.*)/ do |username, password|
   click_on 'login-but'
 end 
 
+When /I input "(.*)" in "(.*)" input bar/ do |keyword, bar|
+  if bar == "Search by title"
+    fill_in :search_by_title, :with => keyword
+  elsif bar == "Search by zipcode"
+    fill_in :search_by_zipcode, :with => keyword
+  end
+end
+
 Then /(.*) seed posts should exist/ do | n_seeds |
   expect(Post.count).to eq n_seeds.to_i
 end
@@ -36,11 +44,11 @@ end
 # Make sure that one string (regexp) occurs before or after another one
 #   on the same page
 
-Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
-  #  ensure that that e1 occurs before e2.
-  #  page.body is the entire content of the page as a string.
-  pending "Fill in this step in movie_steps.rb"
-end
+# Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
+#   #  ensure that that e1 occurs before e2.
+#   #  page.body is the entire content of the page as a string.
+#   pending "Fill in this step in movie_steps.rb"
+# end
 
 # Make it easier to express checking or unchecking several boxes at once
 #  "When I uncheck the following ratings: PG, G, R"
@@ -54,9 +62,15 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
 end
 
 # Part 2, Step 3
-Then /^I should (not )?see the following movies: (.*)$/ do |no, movie_list|
-  # Take a look at web_steps.rb Then /^(?:|I )should see "([^"]*)"$/
-  pending "Fill in this step in movie_steps.rb"
+Then /^the following posts should (not )?show: (.*)/ do |no, post_list|
+    post_list.split(',').each do |post| 
+      post.gsub!('"', '') 
+      if no 
+        expect(page).to have_no_content(post) 
+      else 
+        expect(page).to have_content(post) 
+      end 
+    end 
 end
 
 Then /I should see all the movies/ do
