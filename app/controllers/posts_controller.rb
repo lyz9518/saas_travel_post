@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     def show
       id = params[:id] # retrieve movie ID from URI route
       @post = Post.find(id) # look up movie by unique ID
+      @add_review = "#{params[:id]}/review/add"
       # will render app/views/movies/show.<extension> by default
     end
   
@@ -56,6 +57,26 @@ class PostsController < ApplicationController
       @post.update_attributes!(post_params)
       flash[:notice] = "#{@post.title} was successfully updated."
       redirect_to post_path(@post)
+    end
+
+    def new_review
+      @post = Post.find params[:id]
+      @action_path = "posts/params[:id]/review/create"
+      render "new_review"
+    end
+
+
+    def create_review
+      if params[:review][:content].empty?
+        flash[:notice] = "Content can't be empty"
+        redirect_to(:back)
+      else
+        @post = Post.find params[:id]
+        @post.reviews.build(:content => params[:review][:content])
+        @post.save
+        flash[:notice] = params[:review][:content]
+        redirect_to post_path(@post)
+      end
     end
   
     def destroy

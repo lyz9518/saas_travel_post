@@ -1,0 +1,9 @@
+<h2>Create New Review</h2>
+
+<%= form_tag 'create', class: 'form' do %>
+  <%= label :review, :content, 'Review Content', class: 'col-form-label' %>
+  <%= text_field :review, :content, class: 'form-control' %>
+  <br/>
+  <%= submit_tag 'Add', class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', post_path(@post), class: 'btn btn-secondary' %>
+<% end %>
