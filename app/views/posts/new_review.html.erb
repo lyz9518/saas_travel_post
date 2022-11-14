@@ -4,6 +4,6 @@
   <%= label :review, :content, 'Review Content', class: 'col-form-label' %>
   <%= text_field :review, :content, class: 'form-control' %>
   <br/>
-  <%= submit_tag 'Add', class: 'btn btn-primary' %>
+  <%= submit_tag 'Add', class: 'btn btn-primary', :id => 'review-but' %>
   <%= link_to 'Cancel', post_path(@post), class: 'btn btn-secondary' %>
 <% end %>

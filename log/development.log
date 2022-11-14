@@ -16104,3 +16104,71 @@ Processing by PostsController#show as HTML
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
   Rendered layouts/_flash.erb (0.1ms)
 Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/1/review/add" for 127.0.0.1 at 2022-11-14 00:57:30 -0500
+Processing by PostsController#new_review as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/new_review.html.erb within layouts/application (11.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 275ms (Views: 242.4ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/posts/1/review/create" for 127.0.0.1 at 2022-11-14 00:59:46 -0500
+Processing by PostsController#create_review as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DUIyxcKSpnjDgGW5DDZbg9GFt/SUEyFHRYeUSHfoLOwHJRRUFf9sxcUbhyzCU+jwt3f3rBPT1ItwGfO+/u0mAg==", "review"=>{"content"=>"This post is super helpful!"}, "commit"=>"Add", "id"=>"1"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "reviews" ("content", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "This post is super helpful!"], ["post_id", 1], ["created_at", "2022-11-14 05:59:46.401442"], ["updated_at", "2022-11-14 05:59:46.401442"]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/posts/1
+Completed 302 Found in 28ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2022-11-14 00:59:46 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered posts/show.html.erb within layouts/application (1.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1/review/add" for 127.0.0.1 at 2022-11-14 01:45:38 -0500
+Processing by PostsController#new_review as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/new_review.html.erb within layouts/application (11.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 269ms (Views: 238.2ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/posts/1/review/create" for 127.0.0.1 at 2022-11-14 01:45:49 -0500
+Processing by PostsController#create_review as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yejQZJQmY6nbgfgViV9Bmz3E7n807AxrNfWG+yKOxmLDj/b1Q0upFN0aGoBHOvLoWzauJ7Ms+acAa+ENq4vMjA==", "review"=>{"content"=>"A test review for movie 3"}, "commit"=>"Add", "id"=>"1"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "reviews" ("content", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "A test review for movie 3"], ["post_id", 1], ["created_at", "2022-11-14 06:45:50.009570"], ["updated_at", "2022-11-14 06:45:50.009570"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/posts/1
+Completed 302 Found in 56ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2022-11-14 01:45:50 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered posts/show.html.erb within layouts/application (1.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.2ms)
