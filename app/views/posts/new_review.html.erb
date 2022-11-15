@@ -1,9 +1,10 @@
-<h2>Create New Review</h2>
+<h2 >Create New Review</h2>
 
 <%= form_tag 'create', class: 'form' do %>
-  <%= label :review, :content, 'Review Content', class: 'col-form-label' %>
-  <%= text_field :review, :content, class: 'form-control' %>
+  <%= label :review, :content, 'Review Content', class: 'col-form-label'%>
+  <%= text_area :review, :content, class: 'form-control', :size => "10x5", :autofocus=>"autofocus", :style=>"font-family:FiraSans Italic"%>
+
   <br/>
-  <%= submit_tag 'Add', class: 'btn btn-primary', :id => 'review-but' %>
-  <%= link_to 'Cancel', post_path(@post), class: 'btn btn-secondary' %>
+  <%= submit_tag 'Add', class: 'btn btn-primary', :id => 'review-but', :style=>'position:absolute; right:130px' %>
+  <%= link_to 'Cancel', post_path(@post), class: 'btn btn-secondary',:style=>'position:absolute; right:45px' %>
 <% end %>

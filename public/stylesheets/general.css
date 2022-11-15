@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'FiraSans';
+  src: url('FiraSans-Regular.ttf');
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -33,6 +38,7 @@ h1 {
   border-bottom: 4px solid gold;
   font-size: 2em;
 }
+
 h1 a {
   text-decoration: none;
   background: transparent;
@@ -115,3 +121,4 @@ form label {
 form #submit {
   margin-left: 150px;
 }
+

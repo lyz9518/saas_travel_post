@@ -16,8 +16,8 @@
         <div>Welcome <%= current_user.user_name %></div>
         <%= button_to "Sign Off", '/signoff', method: :get%>
       <% else %>
-        <%= button_to "Login", '/login', method: :get, :id =>'nav-login-but'%>
-        <%= button_to "Sign Up", '/users/new', method: :get, :id => 'nav-signup-but'%>
+        <%= button_to "Login", '/login', class: 'btn btn-outline-warning', method: :get, :id =>'nav-login-but', :style=>"transform: translateX(20%)"%>
+        <%= button_to "Sign Up", '/users/new', class: 'btn btn-outline-warning', method: :get, :id => 'nav-signup-but',:style=>"transform: translateX(30%)"%>
       <% end %>
     </nav>
     <div class="container">
