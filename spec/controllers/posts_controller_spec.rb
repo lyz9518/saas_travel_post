@@ -81,6 +81,13 @@ describe PostsController do
 
       expect(response).to redirect_to(posts_url)
     end
+
+    it 'ask unregistered users to login when they try to create new posts' do
+      request.session[:user_id] = 1
+      post :create, :post => {:zipcode=>"", :title=>"", :description=>"XXX"}
+      expect(flash[:notice]).to match(/Please enter all slots to continue!/)
+      expect(response).to redirect_to("/posts/new")
+    end
   end
 
   describe 'DELETE' do
