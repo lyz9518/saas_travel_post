@@ -17565,3 +17565,33 @@ Processing by UsersController#new as HTML
   [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
   Rendered layouts/_flash.erb (0.1ms)
 Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-16 14:33:41 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9ZGAhgchRXitHoey1i1fvygTLSg0sRKhxZSaA2yaH7nUv2o0G/t4eUhoUm2S4L20j+Qf92ozlMBSLdHpqzy0cA==", "user"=>{"user_name"=>"", "first_name"=>"sdf", "last_name"=>"sdfse", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Redirected to http://0.0.0.0:3000/users/new?
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-11-16 14:33:41 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (17.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 307ms (Views: 281.1ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-11-16 14:34:50 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JeLmM/vLgKYLoJCkPiGh9zWnd3MUp+L1QbJRIxdxRVkEzAyB5xG9p+7WRXt67EP8klBFrEolZJTWCxrJ0NfukA==", "user"=>{"user_name"=>"wfdasd", "first_name"=>"sadfase", "last_name"=>"sadfaes", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Redirected to http://0.0.0.0:3000/users/new?
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-11-16 14:34:50 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 14ms (Views: 13.7ms | ActiveRecord: 0.1ms)

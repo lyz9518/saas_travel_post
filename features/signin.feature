@@ -33,5 +33,25 @@ Scenario: Create new account, and should be able to make new post
   When I click "Add new post"
   Then I am on the new post page
 
+Scenario: Can't Create new account with empty username
+  Given I am on the home page
+  When I press "nav-signup-but"
+  Then I should see "Create A User Now"
+  And I fill in "First name" with "Test"
+  And I fill in "Last name" with "Bot"
+  And I fill in "Password" with "tmp"
+  And I press "create-user"
+  Then I should see "User Name can't be empty"
+
+Scenario: Can't Create new account with empty username
+  Given I am on the home page
+  When I press "nav-signup-but"
+  Then I should see "Create A User Now"
+  And I fill in "User name" with "testbot"
+  And I fill in "First name" with "Test"
+  And I fill in "Last name" with "Bot"
+  And I press "create-user"
+  Then I should see "Password can't be empty"
+
 
 
