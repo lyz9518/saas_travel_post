@@ -122,3 +122,8 @@ form #submit {
   margin-left: 150px;
 }
 
+.index-pad {
+  display: inline-block;
+  border-radius: 5rem;
+}
+

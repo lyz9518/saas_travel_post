@@ -364,6 +364,11 @@
           null
         ]
       },
+      "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/config/initializers/assets.rb": {
+        "lines": [
+          1
+        ]
+      },
       "/Users/chenli/Documents/Columbia/cs4152/saas_travel_post/config/initializers/backtrace_silencers.rb": {
         "lines": [
           null,
@@ -670,9 +675,17 @@
           null,
           1,
           1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          null,
           1,
           1,
           1,
+          1,
+          null,
           null,
           null
         ]
@@ -709,6 +722,6 @@
         ]
       }
     },
-    "timestamp": 1668408939
+    "timestamp": 1668626469
   }
 }

@@ -1,33 +1,67 @@
 <!--  app/views/movies/show.html.erb -->
-<h2>Details about <em><%= @post.title %></em></h2>
 
-<ul id="details">
-  <li>
-    Created on:
-    <%= @post.date %>
-  </li>
-  <li>
-    By:
-    <%= @post.creator_id %>
-  </li>
-</ul>
-
-<h3>Description:</h3>
-<p id="description">
-  <%= @post.description %>
-</p>
-
-<div class="row">
-  <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary col-2' %>
-  <%= link_to 'Delete', post_path(@post), 'data-method': 'delete', 'data-confirm': 'Are you sure?', class: 'btn btn-danger col-2' %>
-  <%= link_to 'Back', posts_path, class: 'btn btn-primary col-2' %>
-  <%= link_to 'Add Review', @add_review, class: 'btn btn-primary col-2' %>
+<div class="show-pad">
+  <div class="row">
+    <div class="col-5">
+      <%= image_tag 'default.jpg', :style => "width: 100%;" %>
+    </div>
+    <div class="col-7">
+      <div>
+        <div class="row">
+          <div class="col-12">  
+          <h2>Details about <em><%= @post.title %></em></h2>
+          </div>
+        </div>
+        <div class="row index-detail">
+          <div class="col-6">
+            Created On:
+          </div>
+          <div class="col-6">
+            <%= @post.date %>
+          </div>
+        </div>
+        <div class="row index-detail">
+          <div class="col-6">
+            By:
+          </div>
+          <div class="col-6">
+            <%= @post.creator_id %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <h3>Description:</h3>
+          </div>
+          <div class="col-12 index-detail">
+            <%= @post.description %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-3">
+            <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary' %>
+          </div>
+          <div class="col-3">
+            <%= link_to 'Back', posts_path, class: 'btn btn-primary' %>
+          </div>
+          <div class="col-3">
+            <%= link_to 'Delete', post_path(@post), 'data-method': 'delete', 'data-confirm': 'Are you sure?', class: 'btn btn-danger' %>
+          </div>
+          <div class="col-3">
+            <%= link_to 'Add Review', @add_review, class: 'btn btn-primary' %>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 <hr>
 <h3>Reviews:</h3>
 <% @post.reviews.each do |review| %>
-  <div>
+  <div class="review-content">
     <%= review.content %>
   </div>
   <hr>

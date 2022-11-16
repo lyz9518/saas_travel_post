@@ -12,6 +12,56 @@
   <div>
 </div>
 
+<%= link_to 'Add new post', new_post_path, class: 'btn btn-primary' %>
+
+<br>
+
+<div class="row">
+  <% @all_posts.each do |post| %>
+    <div class="col-4">
+      <div class="index-pad">
+        <div class="row">
+          <div class="col-12">
+            <%= image_tag 'default.jpg', :style => "width: 100%;" %>
+          </div>
+        </div>
+        <div class="index-content">
+          <div class="row">
+            <div class="col-12">  
+              <%= link_to "#{post.title}", post_path(post), :class => "index-title" %>
+            </div>
+          </div>
+          <div class="row index-detail">
+            <div class="col-6">
+              Post ID:
+            </div>
+            <div class="col-6">
+              <%= post.id %>
+            </div>
+          </div>
+          <div class="row index-detail">
+            <div class="col-6">
+              Creator ID:
+            </div>
+            <div class="col-6">
+              <%= post.creator_id %>
+            </div>
+          </div>
+          <div class="row index-detail">
+            <div class="col-6">
+              Post Zip:
+            </div>
+            <div class="col-6">
+              <%= post.zipcode %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<!--
 <table class="table table-striped col-md-12" id="posts">
   <thead>
     <tr>
@@ -40,4 +90,4 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to 'Add new post', new_post_path, class: 'btn btn-primary' %>
+-->
