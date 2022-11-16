@@ -61,7 +61,7 @@ This application has been deployed on Heroku. You may access it thru the link be
 Set up heroku server by following the commands below
 ```
 heroku apps:create (may have to change heroku stack if prompted stack version error)
-git push heroku master 
+git push heroku
 heroku run rake db:migrate
 heroku run rake db:seed
 ```
