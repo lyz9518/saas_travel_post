@@ -157,15 +157,15 @@ describe PostsController do
     end
   end
 
-  # describe 'Review' do
-  #   let!(:newpost) { Post.create!(title: 'Hi', zipcode: '10463')}
+  describe 'Review', type: [:request, :controller] do
+    let!(:newpost) { Post.create!(title: 'Hi', zipcode: '10463')}
 
-  #   it 'Add review to the post' do
-  #     post "/posts/#{newpost.id}/review/create", :params => {:id => newpost.id, :review => {:content=>"The first review"}}
-  #     reviews = (Post.find newpost.id).reviews
-  #     expect(reviews.count).to eq(1)
+    it 'Add review to the post' do
+      post "/posts/#{newpost.id}/review/create",:id => newpost.id, :review => {:content=>"The first review"}
+      reviews = (Post.find newpost.id).reviews
+      expect(reviews.count).to eq(1)
 
-  #     expect(response).to redirect_to(post_path(newpost))
-  #   end
-  # end
+      expect(response).to redirect_to(post_path(newpost))
+    end
+  end
 end
