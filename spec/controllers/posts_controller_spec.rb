@@ -160,12 +160,25 @@ describe PostsController do
   describe 'Review', type: [:request, :controller] do
     let!(:newpost) { Post.create!(title: 'Hi', zipcode: '10463')}
 
+    it 'should display create new review page' do
+      get "/posts/#{newpost.id}/review/add"
+      expect(response).to render_template('new_review')
+    end
+
     it 'Add review to the post' do
       post "/posts/#{newpost.id}/review/create",:id => newpost.id, :review => {:content=>"The first review"}
       reviews = (Post.find newpost.id).reviews
       expect(reviews.count).to eq(1)
 
       expect(response).to redirect_to(post_path(newpost))
+    end
+
+    it 'can not create empty review' do
+      post "/posts/#{newpost.id}/review/create",:id => newpost.id, :review => {:content=>""}
+      reviews = (Post.find newpost.id).reviews
+      expect(reviews.count).to eq(0)
+      expect(response).to redirect_to("/posts/#{newpost.id}/review/add")
+      expect(flash[:notice]).to eq("Content can't be empty")
     end
   end
 end

@@ -67,7 +67,7 @@ class PostsController < ApplicationController
 
     def new_review
       @post = Post.find params[:id]
-      @action_path = "posts/params[:id]/review/create"
+      # @action_path = "posts/params[:id]/review/create"
       render "new_review"
     end
 
@@ -75,7 +75,7 @@ class PostsController < ApplicationController
     def create_review
       if params[:review][:content].empty?
         flash[:notice] = "Content can't be empty"
-        redirect_to(:back)
+        redirect_to("/posts/#{params[:id]}/review/add")
       else
         @post = Post.find params[:id]
         @post.reviews.build(:content => params[:review][:content])
