@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
 
     # skip_before_action :authorized, only: [:new, :create]
+
+    def show
+      id = params[:id] # retrieve movie ID from URI route
+      @user = User.find(id)
+      @all_posts = Post.where(creator_id: id)
+    end
     
     def new
       @user = User.new

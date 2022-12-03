@@ -4,7 +4,7 @@ Rottenpotatoes::Application.routes.draw do
   resources :posts
   get 'posts/:id/review/add', to: 'posts#new_review'
   post 'posts/:id/review/create', to: 'posts#create_review'
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
   get 'login', to: 'sessions#new'
   get 'signoff', to: 'sessions#signoff'
   post 'login', to: 'sessions#create'

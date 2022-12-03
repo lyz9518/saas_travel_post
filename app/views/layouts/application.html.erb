@@ -10,15 +10,25 @@
   </head>
   <body>
     <%# These classes come from the Bootstrap CSS framework. %>
-    <nav class="navbar navbar-expand-lg bg-primary text-white mb-3">
-      <h1 class="title">Good Points</h1>
+    <nav class="nav-pad navbar-expand-lg bg-primary text-white mb-3">
+    <div class="row">
+      <div class="col-4">
+        <h1 class="title">Good Points</h1>
+      </div>
       <% if logged_in? %>
-        <div>Welcome <%= current_user.user_name %></div>
-        <%= button_to "Sign Off", '/signoff', method: :get%>
+          <div class="col-4"></div>
+          <div class="col-2 center">
+            Welcome 
+            <%= link_to current_user.user_name, user_path(current_user.id), class: 'user-name', style: 'display: inline;' %>
+          </div>
+          <div class="col-2 center">
+            <%= link_to "Sign Off", '/signoff', method: :get, class: 'btn btn-secondary', style: 'display: inline;' %>
+          </div>
       <% else %>
         <%= button_to "Login", '/login', class: 'btn btn-outline-warning', method: :get, :id =>'nav-login-but', :style=>"transform: translateX(20%)"%>
         <%= button_to "Sign Up", '/users/new', class: 'btn btn-outline-warning', method: :get, :id => 'nav-signup-but',:style=>"transform: translateX(30%)"%>
       <% end %>
+    </div>
     </nav>
     <div class="container">
       <%# Render "flash" messages in our application. This loads _flash.erb %>
