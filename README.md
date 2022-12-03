@@ -64,6 +64,7 @@ heroku apps:create (may have to change heroku stack if prompted stack version er
 git push heroku
 heroku run rake db:migrate
 heroku run rake db:seed
+(Heroku has eliminated the free version thus do not run this if you don't have Eco Dyno subscriptions)
 ```
 
 ## Team Collaboration Notice
