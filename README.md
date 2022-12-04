@@ -58,13 +58,19 @@ This application has been deployed on Heroku. You may access it thru the link be
 
 [GoodPoints](https://cryptic-everglades-19398.herokuapp.com/)
 
+WARNING:
+Heroku has eliminated the free version thus do not run this if you don't have Eco Dyno subscriptions, run the command below to anable Eco Dyno:
+```
+heroku ps:scale web=1
+```
+
+
 Set up heroku server by following the commands below
 ```
 heroku apps:create (may have to change heroku stack if prompted stack version error)
 git push heroku
 heroku run rake db:migrate
 heroku run rake db:seed
-(Heroku has eliminated the free version thus do not run this if you don't have Eco Dyno subscriptions)
 ```
 
 ## Team Collaboration Notice
