@@ -25,6 +25,7 @@ class PostsController < ApplicationController
         flash["notice"] = "Login to create new post"
         redirect_to "/login"
       end
+      @post = Post.new
     end
   
     def create
@@ -35,12 +36,14 @@ class PostsController < ApplicationController
         # TODO: Dummy User & Post at the moment. Replace this section in Iter2\
         @user_id = current_user.id
         @user_name = current_user.user_name
+        @image = params[:post][:image]
         @aa = params[:post]
         @post = Post.create!(
           zipcode: @zipcode, 
           title: @post_title, 
           creator_id: @user_id, 
           description: @post_description, 
+          image: @image,
           date: "2022-01-03")
         flash[:notice] = "#{@post.title} was successfully created."
         redirect_to posts_path
@@ -99,7 +102,7 @@ class PostsController < ApplicationController
   
     private
     def post_params
-      params.require(:post).permit(:title, :description)
+      params.require(:post).permit(:title, :description, :zipcode, :image)
     end
   
     # def force_index_redirect

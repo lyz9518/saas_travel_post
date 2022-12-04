@@ -20,9 +20,14 @@
   <% @all_posts.each do |post| %>
     <div class="col-4">
       <div class="index-pad">
-        <div class="row">
+        <div class="row"> 
           <div class="col-12">
-            <%= image_tag 'default.jpg', :style => "width: 100%;" %>
+            <% if post.image.present?%>
+              <%= image_tag post.image.url, :style => "width: 100%;" %>
+            <% else %>
+              <% puts post%>
+              <%= image_tag 'default.jpg', :style => "width: 100%;" %>
+            <% end %>
           </div>
         </div>
         <div class="index-content">
