@@ -24676,3 +24676,88 @@ Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.4ms)
   [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20221204062700')
   [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20221114053931')[0m
   [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150809022253')
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2022-12-04 22:22:59 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:Post> at /Users/chenli/Documents/Columbia/cs4152/saas_travel_post/app/models/post.rb:3)
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.1ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."post_id" = ?  [["post_id", 1]]
+  Rendered posts/show.html.erb within layouts/application (236.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 326ms (Views: 293.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2022-12-04 22:23:07 -0500
+Processing by PostsController#index as HTML
+  Parameters: {"authenticity_token"=>"0NGo8xl7J1buI/6C8fLZwqxcpDuRVu4glLxqStD476eODU8aSMgG8RmtAKj1+9RD1CCW6Oxo/lXo6CEoym3GMA=="}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (11.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/5" for 127.0.0.1 at 2022-12-04 22:23:31 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPost Load (1.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."post_id" = ?[0m  [["post_id", 5]]
+  Rendered posts/show.html.erb within layouts/application (6.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 27ms (Views: 23.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/signoff" for 127.0.0.1 at 2022-12-04 22:28:48 -0500
+Processing by SessionsController#signoff as HTML
+  Parameters: {"authenticity_token"=>"WY9RBFsTZ5oCJxsvwshL1zpaW34mZ4cl5xAdT8aD7TMHU7btCqBGPfWp5QXGwUZWQiZprVtZl1CbRFYt3BbEpA=="}
+Redirected to http://0.0.0.0:3000/posts
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2022-12-04 22:28:48 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-12-04 22:28:49 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (19.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 30ms (Views: 29.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-12-04 22:28:55 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1WZTTME3zKuqZ9smNxsS2pslPy6YEu/aTGNG3z+ggMN4ls1Vwd4KXH4vMkIisskdGj7glafjThS9QfQCZ+e2CA==", "user"=>{"user_name"=>"lion", "first_name"=>"sdf", "last_name"=>"sdf", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? LIMIT 1  [["user_name", "lion"]]
+Redirected to http://0.0.0.0:3000/users/new
+Completed 302 Found in 20ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-12-04 22:28:55 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 14ms (Views: 13.7ms | ActiveRecord: 0.1ms)
