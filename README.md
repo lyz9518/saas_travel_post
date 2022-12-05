@@ -17,7 +17,7 @@ GitHub Repo: [https://github.com/lyz9518/saas_travel_post](https://github.com/ly
 * rails 4.2.11
 * Git
 
-### OS Requirementsß
+### OS Requirements
 * Tested on ARM based Apple M1 Macbook Pro
 * macOS Monterey 12.3.1
 
@@ -54,9 +54,15 @@ bundle exec rerun -- rackup --port 3000
 
 * Heroku Setup
 
-This application has been deployed on Heroku. You may access it thru the link below.
+This application has been deployed on Heroku. You may access it through the link below.
 
 [GoodPoints](https://cryptic-everglades-19398.herokuapp.com/)
+
+* Project Demo Video
+https://www.youtube.com/watch?v=UcBqx7KTfyc
+
+* Presentation Deck
+https://docs.google.com/presentation/d/1oUZFl54wTkG9L_XGlQPqeR-MlqKOHyrKNfcKk7QG5Sw/edit?usp=sharing
 
 WARNING:
 Heroku has eliminated the free version thus do not run this if you don't have Eco Dyno subscriptions, run the command below to anable Eco Dyno:
