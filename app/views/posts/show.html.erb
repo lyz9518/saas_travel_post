@@ -2,11 +2,14 @@
 
 <div class="show-pad">
   <div class="row">
-  <% if @post.image.present? %>
-    <%= image_tag @post.image.url %>
-  <% else %>
-    <%= image_tag 'default.jpg', :style => "width: 100%;" %>
-  <% end %>
+    <div class="col-8 photo-pad">
+      <% if @post.image.present? %>
+        <%= image_tag @post.image.url %>
+      <% else %>
+        <%= image_tag 'default.jpg', :style => "width: 100%;" %>
+      <% end %>
+    </div>
+    <div class="col-4"></div>
   </div>
   <div class="row">
     <div class="col-12">
