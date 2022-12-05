@@ -23,6 +23,10 @@ Given /I have login as (.*) with password (.*)/ do |username, password|
   click_on 'login-but'
 end 
 
+When /^(?:|I )click "([^"]*)" by xpath$/ do |link|
+  find(:xpath, link).click
+end
+
 When /I try to login as (.*) with password (.*)/ do |username, password|
   fill_in "user_name", :with => username
   fill_in "password", :with => password
