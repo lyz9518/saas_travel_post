@@ -43,7 +43,7 @@ Scenario: Can't Create new account with empty username
   And I press "create-user"
   Then I should see "User Name can't be empty"
 
-Scenario: Can't Create new account with empty username
+Scenario: Can't Create new account with empty password
   Given I am on the home page
   When I press "nav-signup-but"
   Then I should see "Create A User Now"
@@ -53,5 +53,24 @@ Scenario: Can't Create new account with empty username
   And I press "create-user"
   Then I should see "Password can't be empty"
 
+Scenario: Can't Create new account with empty first name
+  Given I am on the home page
+  When I press "nav-signup-but"
+  Then I should see "Create A User Now"
+  And I fill in "User name" with "testbot"
+  And I fill in "Last name" with "Bot"
+  And I fill in "Password" with "tmp"
+  And I press "create-user"
+  Then I should see "First name can't be empty"
+
+Scenario: Can't Create new account with empty last name
+  Given I am on the home page
+  When I press "nav-signup-but"
+  Then I should see "Create A User Now"
+  And I fill in "User name" with "testbot"
+  And I fill in "First name" with "Bot"
+  And I fill in "Password" with "tmp"
+  And I press "create-user"
+  Then I should see "Last name can't be empty"
 
 

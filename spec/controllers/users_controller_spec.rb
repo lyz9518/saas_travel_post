@@ -39,7 +39,7 @@ describe UsersController do
     let!(:user) { User.create!(user_name: 'abc', first_name: 'Columbia', last_name: "Lion", password: "123")}
 
     it 'create new user' do
-      user_info = {:user => {:user_name => "fakeuser", :password => "mypassword"}}
+      user_info = {:user => {:user_name => "fakeuser", :first_name=>"Bob", :last_name=>"alice", :password => "mypassword"}}
       fake_user = double({:id => 0})
       expect(User).to receive(:create).with(user_info[:user]).and_return(fake_user)
       get :create, user_info
@@ -49,21 +49,35 @@ describe UsersController do
     end 
 
     it 'can not create new user without username' do
-      user_info = {:user => {:user_name => "", :password => "mypassword"}}
+      user_info = {:user => {:user_name => "", :first_name=>"Bob", :last_name=>"alice", :password => "mypassword"}}
       post :create, user_info
       expect(flash[:notice]).to match(/User Name can't be empty/)
       expect(response).to redirect_to("/users/new")
     end 
 
     it 'can not create new user without password' do
-      user_info = {:user => {:user_name => "fakeuser", :password => ""}}
+      user_info = {:user => {:user_name => "fakeuser", :first_name=>"Bob", :last_name=>"alice", :password => ""}}
       post :create, user_info
       expect(flash[:notice]).to match(/Password can't be empty/)
       expect(response).to redirect_to("/users/new")
     end 
 
+    it 'can not create new user with empty first name' do
+      user_info = {:user => {:user_name => "fakeuser", :last_name=>"alice", :password => "123"}}
+      post :create, user_info
+      expect(flash[:notice]).to match(/First name can't be empty/)
+      expect(response).to redirect_to("/users/new")
+    end 
+
+    it 'can not create new user with empty last name' do
+      user_info = {:user => {:user_name => "fakeuser", :first_name=>"Bob", :password => "123"}}
+      post :create, user_info
+      expect(flash[:notice]).to match(/Last name can't be empty/)
+      expect(response).to redirect_to("/users/new")
+    end 
+    
     it 'can not create new user with existing username' do
-      user_info = {:user => {:user_name => "abc", :password => "321"}}
+      user_info = {:user => {:user_name => "abc", :first_name=>"Bob", :last_name=>"alice", :password => "321"}}
       post :create, user_info
       expect(flash[:notice]).to match(/Username already exist/)
       expect(response).to redirect_to("/users/new")

@@ -16,6 +16,12 @@ class UsersController < ApplicationController
       if params["user"]["user_name"].empty?
         flash["notice"] = "User Name can't be empty"
         redirect_to '/users/new'
+      elsif params["user"]["first_name"].nil? or params["user"]["first_name"].empty?
+        flash["notice"] = "First name can't be empty"
+        redirect_to '/users/new'
+      elsif params["user"]["last_name"].nil? or params["user"]["last_name"].empty?
+        flash["notice"] = "Last name can't be empty"
+        redirect_to '/users/new'
       elsif params["user"]["password"].empty?
         flash["notice"] = "Password can't be empty"
         redirect_to '/users/new'

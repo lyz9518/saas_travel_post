@@ -82,6 +82,14 @@ describe PostsController do
       expect(response).to redirect_to(posts_url)
     end
 
+    it 'create a new post with wrong zipcode' do
+      orig_posts_count = Post.all.count
+      request.session[:user_id] = 1
+      post :create, :post => {:zipcode=>"123456", :title=>"AAA", :description=>"XXX"}
+      expect(flash[:warning]).to match(/zipcode 123456 is not invalid!/)
+      expect(response).to redirect_to("/posts/new")
+    end
+
     it 'ask unregistered users to login when they try to create new posts' do
       request.session[:user_id] = 1
       post :create, :post => {:zipcode=>"", :title=>"", :description=>"XXX"}
