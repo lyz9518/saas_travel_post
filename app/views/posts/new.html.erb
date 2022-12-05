@@ -1,13 +1,21 @@
 <h2>Create New Post</h2>
 
-<%= form_tag posts_path, class: 'form' do %>
-  <%= label :post, :title, 'Post Title', class: 'col-form-label' %>
-  <%= text_field :post, :title, class: 'form-control' %>
-  <%= label :post, :zipcode, 'Zipcode', class: 'col-form-label' %>
-  <%= text_field :post, :zipcode, class: 'form-control' %>
-  <%= label :post, :description, 'Tell Us More about This Place:', class: 'col-form-label' %>
-  <%= text_field :post, :description, class: 'form-control' %>
-  <br/>
-  <%= submit_tag 'Post', class: 'btn btn-primary' %>
-  <%= link_to 'Cancel', posts_path, class: 'btn btn-secondary' %>
+<%= form_for @post, url: posts_path, html:{multipart: true} do |form| %>
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div class="field">
+    <%= form.label :zipcode %>
+    <%= form.text_field :zipcode %>
+  </div>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+  <%= form.submit %>
 <% end %>
