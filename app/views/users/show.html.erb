@@ -34,7 +34,11 @@
       <div class="index-pad">
         <div class="row">
           <div class="col-12">
-            <%= image_tag 'default.jpg', :style => "width: 100%;" %>
+            <% if post.image.present? %>
+              <%= image_tag post.image.url, :style => "width: 100%;" %>
+            <% else %>
+              <%= image_tag 'default.jpg', :style => "width: 100%;" %>
+            <% end %>
           </div>
         </div>
         <div class="index-content">
