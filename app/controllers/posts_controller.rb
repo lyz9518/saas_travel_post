@@ -44,7 +44,7 @@ class PostsController < ApplicationController
           creator_id: @user_id, 
           description: @post_description, 
           image: @image,
-          date: "2022-01-03")
+          date: Time.now.to_date)
         flash[:notice] = "#{@post.title} was successfully created."
         redirect_to posts_path
       else

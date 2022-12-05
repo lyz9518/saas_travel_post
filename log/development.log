@@ -23993,3 +23993,313 @@ You can opt into the new behavior and remove this warning by setting:
   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
   Rendered layouts/_flash.erb (0.4ms)
 Completed 200 OK in 245ms (Views: 217.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2022-12-04 20:46:49 -0500
+
+
+Started GET "/posts" for ::1 at 2022-12-04 20:46:49 -0500
+Processing by PostsController#index as HTML
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:Post> at /Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/app/models/post.rb:3)
+  [1m[36mPost Load (1.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (331.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 407ms (Views: 380.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/default-3c7c252518aacf19e3edad7c7c7d5df67ad4a72870153470f59cb351a1ac7854.jpg" for ::1 at 2022-12-04 20:46:50 -0500
+
+
+Started GET "/posts/new" for ::1 at 2022-12-04 20:46:55 -0500
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/login" for ::1 at 2022-12-04 20:46:55 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for ::1 at 2022-12-04 20:46:58 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PQb7SwK+EgxK+mAbFKPoiHaWa1EhaZe0WpVtdhnR/+2IKc7cS1WyLTuQ/ZXXX1FxKoSjY2H8X+wpmyuiH9vCaQ==", "user_name"=>"111", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "111"]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 7ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for ::1 at 2022-12-04 20:46:58 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (4.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for ::1 at 2022-12-04 20:46:59 -0500
+Processing by PostsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/new.html.erb within layouts/application (19.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 45ms (Views: 37.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/posts" for ::1 at 2022-12-04 20:47:07 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EoXfE2dAR/7I0QVY5FFE04arJBA6hzLV6QqlehUdnHanquqELqvn37m7mNYnrf0q2rnsInoS+o2aBOOuExeh8g==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x000000010f80d5f8 @tempfile=#<Tempfile:/var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/RackMultipart20221204-90517-1daqkck.jpeg>, @original_filename="saas_background.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"saas_background.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "title"=>"111", "zipcode"=>"111", "description"=>"111"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:Post> at /Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/app/models/post.rb:3)
+[paperclip] Trying to link /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/RackMultipart20221204-90517-1daqkck.jpeg to /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/1ffca138c9ef05bbac1ff1eeb3172e4720221204-90517-rmlsgq.jpeg
+[paperclip] Trying to link /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/1ffca138c9ef05bbac1ff1eeb3172e4720221204-90517-rmlsgq.jpeg to /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/1ffca138c9ef05bbac1ff1eeb3172e4720221204-90517-9ivhw4.jpeg
+Command :: file -b --mime '/var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/1ffca138c9ef05bbac1ff1eeb3172e4720221204-90517-9ivhw4.jpeg'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[paperclip] Trying to link /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/1ffca138c9ef05bbac1ff1eeb3172e4720221204-90517-rmlsgq.jpeg to /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/1ffca138c9ef05bbac1ff1eeb3172e4720221204-90517-1mqddkk.jpeg
+Command :: file -b --mime '/var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/1ffca138c9ef05bbac1ff1eeb3172e4720221204-90517-1mqddkk.jpeg'
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("zipcode", "title", "creator_id", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["zipcode", "111"], ["title", "111"], ["creator_id", "3"], ["description", "111"], ["image_file_name", "saas_background.jpeg"], ["image_content_type", "image/jpeg"], ["image_file_size", 82674], ["image_updated_at", "2022-12-05 01:47:07.381181"], ["date", "2022-12-04"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 71ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/posts" for ::1 at 2022-12-04 20:47:07 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (262.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered layouts/_flash.erb (0.3ms)
+Completed 200 OK in 282ms (Views: 281.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/6" for ::1 at 2022-12-04 20:47:09 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mReview Load (0.1ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."post_id" = ?[0m  [["post_id", 6]]
+  Rendered posts/show.html.erb within layouts/application (29.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 42ms (Views: 39.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-04 20:47:12 -0500
+
+
+Started GET "/posts" for 127.0.0.1 at 2022-12-04 20:47:12 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (9.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2022-12-04 20:47:13 -0500
+
+
+Started GET "/assets/application.self-f838ca7284ac6c67db8ea621434014c87b73e63dc0b2958ddaa3f3523d8527df.css?body=1" for 127.0.0.1 at 2022-12-04 20:47:13 -0500
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2022-12-04 20:47:13 -0500
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for 127.0.0.1 at 2022-12-04 20:47:13 -0500
+
+
+Started GET "/assets/default-3c7c252518aacf19e3edad7c7c7d5df67ad4a72870153470f59cb351a1ac7854.jpg" for 127.0.0.1 at 2022-12-04 20:47:13 -0500
+
+
+Started GET "/posts/6" for 127.0.0.1 at 2022-12-04 20:47:17 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mReview Load (0.1ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."post_id" = ?  [["post_id", 6]]
+  Rendered posts/show.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 11]]
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for ::1 at 2022-12-04 20:47:38 -0500
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:Post> at /Users/lyz9518/Desktop/SaaS/Project/saas_travel_post/app/models/post.rb:3)
+  Rendered posts/new.html.erb within layouts/application (16.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered layouts/_flash.erb (0.4ms)
+Completed 200 OK in 367ms (Views: 324.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-04 20:47:42 -0500
+
+
+Started GET "/posts" for 127.0.0.1 at 2022-12-04 20:47:42 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (8.5ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2022-12-04 20:47:44 -0500
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 11]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2022-12-04 20:47:44 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 12ms (Views: 12.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-04 20:47:46 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F2bEA5YpOaCpwiW8bzWmBDkUCUN5C6sf1pAoTmvS4xBb4oKm7OKAJsi4X3yJgcDlwqI++2qaFhAARJHnvontiQ==", "user_name"=>"111", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT 1[0m  [["user_name", "111"]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2022-12-04 20:47:46 -0500
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (19.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 31ms (Views: 30.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2022-12-04 20:47:47 -0500
+Processing by PostsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/new.html.erb within layouts/application (3.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 19ms (Views: 15.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/posts" for ::1 at 2022-12-04 20:47:47 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KGB4yjC4EB3FXStLbd5TZiOhNwYsnu000EexHWZaCtSdT01deVOwPLQ3tsWuIuqff7P/NGwLJWyjSffJYFA3UA==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x0000000107983bd8 @tempfile=#<Tempfile:/var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/RackMultipart20221204-90652-i1nqzj.jpeg>, @original_filename="saas_background.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"saas_background.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "title"=>"22222", "zipcode"=>"22", "description"=>"22"}, "commit"=>"Create Post"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+[paperclip] Trying to link /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/RackMultipart20221204-90652-i1nqzj.jpeg to /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/1ffca138c9ef05bbac1ff1eeb3172e4720221204-90652-5o4guu.jpeg
+[paperclip] Trying to link /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/1ffca138c9ef05bbac1ff1eeb3172e4720221204-90652-5o4guu.jpeg to /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/1ffca138c9ef05bbac1ff1eeb3172e4720221204-90652-1lucmbb.jpeg
+Command :: file -b --mime '/var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/1ffca138c9ef05bbac1ff1eeb3172e4720221204-90652-1lucmbb.jpeg'
+  [1m[35m (0.2ms)[0m  begin transaction
+[paperclip] Trying to link /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/1ffca138c9ef05bbac1ff1eeb3172e4720221204-90652-5o4guu.jpeg to /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/1ffca138c9ef05bbac1ff1eeb3172e4720221204-90652-nftgiz.jpeg
+Command :: file -b --mime '/var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/1ffca138c9ef05bbac1ff1eeb3172e4720221204-90652-nftgiz.jpeg'
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "posts" ("zipcode", "title", "creator_id", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["zipcode", "22"], ["title", "22222"], ["creator_id", "3"], ["description", "22"], ["image_file_name", "saas_background.jpeg"], ["image_content_type", "image/jpeg"], ["image_file_size", 82674], ["image_updated_at", "2022-12-05 01:47:47.751495"], ["date", "2022-12-04"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 42ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/posts" for ::1 at 2022-12-04 20:47:47 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered layouts/_flash.erb (0.0ms)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/7" for ::1 at 2022-12-04 20:47:49 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mReview Load (0.1ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."post_id" = ?  [["post_id", 7]]
+  Rendered posts/show.html.erb within layouts/application (27.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 45ms (Views: 42.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2022-12-04 20:47:53 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LquFujn6O025SviORNJzzKylGFW4e3MmUFoH57+A5hRiL8MfQzGCy9gwgk6iZhUtVxMv7avqzimGjr5OatvojQ==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x0000000106999f60 @tempfile=#<Tempfile:/var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/RackMultipart20221204-90652-yzjre2.png>, @original_filename="Image_created_with_a_mobile_phone.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"Image_created_with_a_mobile_phone.png\"\r\nContent-Type: image/png\r\n">, "title"=>"aaa", "zipcode"=>"111", "description"=>"222"}, "commit"=>"Create Post"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+[paperclip] Trying to link /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/RackMultipart20221204-90652-yzjre2.png to /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/9a24a469996708f553d0901db50edea820221204-90652-1prx6gl.png
+[paperclip] Trying to link /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/9a24a469996708f553d0901db50edea820221204-90652-1prx6gl.png to /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/9a24a469996708f553d0901db50edea820221204-90652-1ujg15.png
+Command :: file -b --mime '/var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/9a24a469996708f553d0901db50edea820221204-90652-1ujg15.png'
+  [1m[35m (0.3ms)[0m  begin transaction
+[paperclip] Trying to link /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/9a24a469996708f553d0901db50edea820221204-90652-1prx6gl.png to /var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/9a24a469996708f553d0901db50edea820221204-90652-149bffk.png
+Command :: file -b --mime '/var/folders/4k/mr0zlvz94z73532zwfzxwlw40000gn/T/9a24a469996708f553d0901db50edea820221204-90652-149bffk.png'
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "posts" ("zipcode", "title", "creator_id", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "date") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["zipcode", "111"], ["title", "aaa"], ["creator_id", "3"], ["description", "222"], ["image_file_name", "Image_created_with_a_mobile_phone.png"], ["image_content_type", "image/png"], ["image_file_size", 404719], ["image_updated_at", "2022-12-05 01:47:53.969946"], ["date", "2022-12-04"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 40ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2022-12-04 20:47:54 -0500
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (7.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/8" for 127.0.0.1 at 2022-12-04 20:47:56 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mReview Load (0.0ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."post_id" = ?  [["post_id", 8]]
+  Rendered posts/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 12ms (Views: 11.7ms | ActiveRecord: 0.3ms)
