@@ -59,9 +59,11 @@ This application has been deployed on Heroku. You may access it through the link
 [GoodPoints](https://cryptic-everglades-19398.herokuapp.com/)
 
 * Project Demo Video
+
 https://www.youtube.com/watch?v=UcBqx7KTfyc
 
 * Presentation Deck
+
 https://docs.google.com/presentation/d/1oUZFl54wTkG9L_XGlQPqeR-MlqKOHyrKNfcKk7QG5Sw/edit?usp=sharing
 
 WARNING:
