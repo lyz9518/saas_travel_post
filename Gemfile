@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.6.6'
 gem 'rails', '4.2.11'
  
+gem 'mimemagic' 
 gem 'paperclip'
 gem 'bcrypt'
 gem 'sass-rails', '~> 5.0.3'
