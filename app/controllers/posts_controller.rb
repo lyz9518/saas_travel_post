@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
     # before_action :force_index_redirect, only: [:index]
+    @sort_by_rating_checked = false
   
     def show
       id = params[:id] # retrieve movie ID from URI route
@@ -10,13 +11,17 @@ class PostsController < ApplicationController
   
     def index
       @all_posts = Post.all()
-    
+      
       if params[:search_by_title] && params[:search_by_title] != ""
         @all_posts = @all_posts.where("title LIKE ?", "%"+params[:search_by_title]+"%")
       end
       if params[:search_by_zipcode] && params[:search_by_zipcode] != ""
-        @all_posts = @all_posts.where("zipcode LIKE ?", "%"+params[:search_by_zipcode]+"%")
+        @all_posts = @all_posts.where("zipcode LIKE ?", "%"+params[:search_by_zipcode]+"%" )
       end
+      if not params[:sort_by_rating].nil?
+        @sort_by_rating_checked = true
+        @all_posts = @all_posts.order("rating DESC")
+      end 
     end
   
     def new
@@ -29,10 +34,15 @@ class PostsController < ApplicationController
     end
   
     def create
-      if params[:post][:title] && params[:post][:description] && params[:post][:zipcode] && params[:post][:title]!="" && params[:post][:description]!="" && params[:post][:zipcode]!=""
+      if params[:post][:title] && params[:post][:description] && params[:post][:rating] && params[:post][:zipcode] && params[:post][:title]!="" && params[:post][:description]!="" && params[:post][:zipcode]!=""
         @post_title = params[:post][:title]
         @post_description = params[:post][:description]
         @zipcode = params[:post][:zipcode]
+        @rating = params[:post][:rating]
+        if not @rating.match(/^\d{1}$/)
+          flash[:warning] = "rating #{@rating} is not in 0-9!"
+          redirect_to '/posts/new' and return
+        end
         if not @zipcode.match(/^\d{5}(?:[-\s]\d{4})?$/)
           flash[:warning] = "zipcode #{@zipcode} is not invalid!"
           redirect_to '/posts/new' and return
@@ -47,6 +57,7 @@ class PostsController < ApplicationController
           title: @post_title, 
           creator_id: @user_id, 
           description: @post_description, 
+          rating: @rating, 
           image: @image,
           date: Time.now.to_date)
         flash[:notice] = "#{@post.title} was successfully created."
@@ -106,7 +117,7 @@ class PostsController < ApplicationController
   
     private
     def post_params
-      params.require(:post).permit(:title, :description, :zipcode, :image)
+      params.require(:post).permit(:title, :description, :zipcode, :image, :sort_by_rating)
     end
   
     # def force_index_redirect

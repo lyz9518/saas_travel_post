@@ -8,6 +8,7 @@ gem 'paperclip'
 gem 'bcrypt'
 gem 'sass-rails', '~> 5.0.3'
 gem 'uglifier', '>= 2.7.1'
+gem 'bootstrap-toggle-rails'
 
 gem 'jquery-rails'
 

@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20221204062700) do
     t.string   "creator_id"
     t.text     "description"
     t.date     "date"
+    t.integer  "rating",             limit: 1
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size",    limit: 8

@@ -17,5 +17,9 @@
     <%= form.label :description %>
     <%= form.text_field :description %>
   </div>
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.number_field :rating, in: 0..9, step: 1 %>
+  </div>
   <%= form.submit %>
 <% end %>
