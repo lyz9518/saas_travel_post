@@ -28,6 +28,7 @@ describe PostsController do
     let!(:post3) { Post.create!(title: 'How are you', zipcode: '10000')}
     let(:search_by_title) {"Hello"}
     let(:search_by_zipcode) {"10001"}
+    let(:sort_by_rating) {true}
     it "should return post 1" do
       get :index, :search_by_title => "Hello", :search_by_zipcode => "10001"
       expect(assigns(:all_posts)).to eq [post1]
@@ -76,7 +77,7 @@ describe PostsController do
     it 'creates a new post and redirects to the index page' do
       orig_posts_count = Post.all.count
       request.session[:user_id] = 1
-      post :create, :post => {:zipcode=>"10463", :title=>"AAA", :description=>"XXX"}
+      post :create, :post => {:zipcode=>"10463", :title=>"AAA", :description=>"XXX", :rating=>3}
       expect(Post.all.count).to eq(orig_posts_count + 1)
 
       expect(response).to redirect_to(posts_url)
@@ -85,10 +86,27 @@ describe PostsController do
     it 'create a new post with wrong zipcode' do
       orig_posts_count = Post.all.count
       request.session[:user_id] = 1
-      post :create, :post => {:zipcode=>"123456", :title=>"AAA", :description=>"XXX"}
+      post :create, :post => {:zipcode=>"123456", :title=>"AAA", :description=>"XXX", :rating=>3}
       expect(flash[:warning]).to match(/zipcode 123456 is not invalid!/)
       expect(response).to redirect_to("/posts/new")
     end
+  
+    it 'create a new post with wrong rating' do
+      orig_posts_count = Post.all.count
+      request.session[:user_id] = 1
+      post :create, :post => {:zipcode=>"11101", :title=>"AAA", :description=>"XXX", :rating=>31}
+      expect(flash[:warning]).to match(/rating 31 is not in 0-9!/)
+      expect(response).to redirect_to("/posts/new")
+    end
+
+    it 'create a new post with string rating' do
+      orig_posts_count = Post.all.count
+      request.session[:user_id] = 1
+      post :create, :post => {:zipcode=>"11101", :title=>"AAA", :description=>"XXX", :rating=>"zx"}
+      expect(flash[:warning]).to match(/rating zx is not in 0-9!/)
+      expect(response).to redirect_to("/posts/new")
+    end
+
 
     it 'ask unregistered users to login when they try to create new posts' do
       request.session[:user_id] = 1
