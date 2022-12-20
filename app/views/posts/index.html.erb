@@ -7,6 +7,8 @@
       <%= text_field_tag :search_by_title, params[:search_by_title] %>
       <%= label_tag :search_by_zipcode %>
       <%= text_field_tag :search_by_zipcode, params[:search_by_zipcode] %>
+      <%= label_tag :sort_by_rating %>
+      <%= check_box_tag :sort_by_rating, 1, @sort_by_rating_checked, :data => {:toggle => "toggle", :onstyle => "primary", :offstyle => "danger"} %>
       <%= submit_tag "Search", class: 'btn btn-primary'%>
     <% end %>
   <div>
@@ -58,6 +60,14 @@
             </div>
             <div class="col-6">
               <%= post.zipcode %>
+            </div>
+          </div>
+          <div class="row index-detail">
+            <div class="col-6">
+              Rating:
+            </div>
+            <div class="col-6">
+              <%= post.rating %>
             </div>
           </div>
         </div>

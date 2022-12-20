@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 posts = [
-  { zipcode: '10463', creator_id: '1', title: "Check out Here!", description: 'hello world', date: '2022-01-01'},
-  { zipcode: '10464', creator_id: '1', title: "You don't wanna miss this", description: 'Hi welcome', date: '2022-01-01'},
-  { zipcode: '10463', creator_id: '2', title: "I had so much fun here", description: 'hello USA', date: '2022-01-02'}
+  { zipcode: '10463', creator_id: '1', title: "Check out Here!", description: 'hello world', date: '2022-01-01', rating: 4},
+  { zipcode: '10464', creator_id: '1', title: "You don't wanna miss this", description: 'Hi welcome', date: '2022-01-01', rating: 8},
+  { zipcode: '10463', creator_id: '2', title: "I had so much fun here", description: 'hello USA', date: '2022-01-02', rating: 2}
 ]
 
 users = [
